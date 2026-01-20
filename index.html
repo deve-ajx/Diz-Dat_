@@ -680,5 +680,102 @@ s0.parentNode.insertBefore(s1,s0);
     Developer
   </a>
 </p>
+<!-- ICON GRID SECTION -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 text-center">
+  <!-- Trending Products -->
+  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('products')">
+    <i class="fas fa-shopping-bag text-6xl text-pink-500"></i>
+    <p class="mt-2 font-semibold text-lg">Trending Products</p>
+  </div>
+
+  <!-- Customer Reviews -->
+  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('customers')">
+    <i class="fas fa-heart text-6xl text-red-500"></i>
+    <p class="mt-2 font-semibold text-lg">Customer Reviews</p>
+  </div>
+
+  <!-- Limited Offers -->
+  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('offers')">
+    <i class="fas fa-clock text-6xl text-yellow-500"></i>
+    <p class="mt-2 font-semibold text-lg">Limited Offers</p>
+  </div>
+
+  <!-- Fashion News -->
+  <div class="flex flex-col items-center cursor-pointer hover:scale-105 transition-transform" onclick="openModal('news')">
+    <i class="fas fa-newspaper text-6xl text-blue-500"></i>
+    <p class="mt-2 font-semibold text-lg">Fashion News</p>
+  </div>
+</div>
+
+<!-- MODAL BACKDROP -->
+<div id="modalBackdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-start pt-20 z-50 overflow-auto">
+  <div class="bg-white rounded-xl max-w-3xl w-11/12 p-6 relative">
+    <button class="absolute top-3 right-3 text-gray-600 text-2xl font-bold hover:text-gray-900" onclick="closeModal()">✕</button>
+    <div id="modalContent" class="space-y-4"></div>
+  </div>
+</div>
+
+<script>
+  const modalContent = {
+    products: `
+      <h2 class="text-2xl font-bold mb-4 text-pink-600">Trending Products</h2>
+      <p class="mb-2">Check out our hottest items right now!</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918044/IMG_0061_vrufyo.jpg" alt="Trending Product" class="rounded-lg w-full">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916653_cqvpx6" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916799_wewsqy" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
+      </div>
+    `,
+    customers: `
+      <h2 class="text-2xl font-bold mb-4 text-red-600">Customer Reviews</h2>
+      <p class="mb-2">Here’s what our happy customers have to say:</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918044/IMG_0061_vrufyo.jpg" alt="Customer" class="rounded-lg w-full">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768916653_cqvpx6" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
+      </div>
+      <ul class="mt-2 list-disc ml-5">
+        <li>"Love my new outfit!" – Amina</li>
+        <li>"Stylish and fast delivery!" – Musa</li>
+        <li>"Very high-quality fashion pieces!" – Fatima</li>
+      </ul>
+    `,
+    offers: `
+      <h2 class="text-2xl font-bold mb-4 text-yellow-600">Limited Offers</h2>
+      <p class="mb-2">Grab these deals before they run out!</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <img src="https://res.cloudinary.com/dm6k0etap/image/upload/v1768918017/IMG_0058_exlznt.jpg" alt="Limited Offer" class="rounded-lg w-full">
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dm6k0etap&public_id=RPReplay_Final1768769093_zwmowy" class="w-full aspect-video rounded-lg" allowfullscreen></iframe>
+      </div>
+      <ul class="mt-2 list-disc ml-5">
+        <li>Perfume Set – 20% off (Today only)</li>
+        <li>Jallabiya – Buy 2 get 1 free</li>
+        <li>Stylish Caps – ₦3,000 (Limited Stock)</li>
+      </ul>
+    `,
+    news: `
+      <h2 class="text-2xl font-bold mb-4 text-blue-600">Fashion News & Magazine</h2>
+      <p class="mb-2">Stay updated with the latest fashion trends and styles:</p>
+      <ul class="list-disc ml-5 space-y-1">
+        <li>Ramadan 2026 fashion trends in Saudi Arabia – elegant Jallabiyas and abayas</li>
+        <li>Moroccan and Nigerian traditional clothing making waves internationally</li>
+        <li>Modern fusion styles combining West African prints with contemporary fashion</li>
+        <li>Top accessories and styling tips for Eid celebrations</li>
+        <li>Fashion magazines highlight: Trending fabrics, color palettes, and seasonal must-haves</li>
+      </ul>
+    `
+  };
+
+  function openModal(section) {
+    document.getElementById('modalContent').innerHTML = modalContent[section];
+    document.getElementById('modalBackdrop').classList.remove('hidden');
+    document.getElementById('modalBackdrop').classList.add('flex');
+  }
+
+  function closeModal() {
+    document.getElementById('modalBackdrop').classList.add('hidden');
+    document.getElementById('modalBackdrop').classList.remove('flex');
+  }
+</script>
+
 </body>
 </html>
